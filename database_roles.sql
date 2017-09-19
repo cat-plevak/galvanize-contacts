@@ -1,10 +1,11 @@
 createdb galvanize_contacts;
 CREATE ROLE galvanize_admin WITH LOGIN PASSWORD 'galvanize_P@$$w0rd';
 ALTER ROLE galvanize_admin WITH LOGIN;
-REVOKE ALL PRIVILEGES ON galvanize_contacts;
+REVOKE ALL PRIVILEGES ON DATABASE galvanize_contacts FROM public;
 GRANT ALL PRIVILEGES ON DATABASE galvanize_contacts TO public;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL tables IN SCHEMA public TO galvanize_admin;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO galvanize_admin;
+
 
 
 --
